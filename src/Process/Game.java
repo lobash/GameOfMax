@@ -53,7 +53,7 @@ public class Game extends JFrame {
 
 //        у второго слушателя включаем свитч, ему передаем параметр (ответ)
 //        обрабатываем, и пляшем к третей кнопке или гамовер. Осталось только вывести это
-        // azaza
+//        azaza
         button2.addActionListener(e -> {
             switch (answer) {
                 case "1":
