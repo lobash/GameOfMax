@@ -93,13 +93,17 @@ public class Game extends JFrame {
         JButton button2 = new JButton("2");
         JButton button3 = new JButton("3");
 
+        button.setText("Start Game!");
         panel.add(button, c);
+
         c.gridx++;
 
         panel.add(button2, c);
+        button2.setEnabled(false);
         c.gridx++;
 
         panel.add(button3, c);
+        button3.setEnabled(false);
         c.gridx++;
         c.gridy = 0;
 
