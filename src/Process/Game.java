@@ -79,13 +79,13 @@ public class Game extends JFrame {
 
         c.gridy = 5;
 
-        c.insets = new Insets(150,0,0,50);
+        c.insets = new Insets(150, 0, 0, 50);
         JTextField input = new JTextField(1);
         panel.add(input, c);
 
 
 //        Добавляю кнопки
-        c.insets = new Insets(0,0,0,0);
+        c.insets = new Insets(0, 0, 0, 0);
 
         c.gridy += 2;
 
@@ -147,8 +147,8 @@ public class Game extends JFrame {
         JLabel image = new JLabel();
         image.setIcon(new ImageIcon(getClass().getResource("/Image/kot_pilot.jpg")));
         panel.add(image, c);
-        
 
+    }
 
 //      привязываем слушателя к первой кнопке
 
