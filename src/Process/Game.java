@@ -8,32 +8,34 @@ import java.awt.*;
 
 public class Game extends JFrame {
 
+    //Счетчики
+    public static int karma;
+    public static int day;
+    public static int proekt;
+    public static int step;
+    public static int shtraf;
+
+    public static String message = "Hello guy! This is я не знаю английского крч. Для того, что бы начать игру, нажми 'Start Game'";
+
+
+
     // создаю элементы фрейма
-    private static final long serialVersionUID = 1L;
-
-//    public JTextField input = new JTextField();
-//    public static JTextArea textArea = new JTextArea(10, 30);
-//    public static String answer;
-//    public static String message;
-
-//    JButton button = new JButton("Start Game");
-//    JButton button2 = new JButton("Enter");
-//    JButton button3 = new JButton("Enter");
-
 
     public Game() {
         super("Max-Javax");
         createView();
         this.setSize(900, 400);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setResizable(true);
+        setResizable(false);
+
     }
 
 
     //  Создание скелета
+
     private void createView() {
 
-//      Создание Layout
+//      Создание GridBagLayout
 
         JPanel panelMain = new JPanel();
         getContentPane().add(panelMain);
@@ -57,17 +59,29 @@ public class Game extends JFrame {
         c.gridwidth = 3;
         c.gridheight = 4;
 
-        c.ipadx = 400;
-        c.ipady = 80;
+        c.ipadx = 120;
+        c.ipady = 100;
 
         JTextArea textArea = new JTextArea("asd");
         panel.add(textArea, c);
 
+//      Вешаем скролл на текст арею
+
         textArea.setWrapStyleWord(true);
-        textArea.setEditable(false);
-        textArea.setText("New Game");
+        textArea.setLineWrap(true);
+        textArea.setEditable(true);
+//        textArea.setColumns(10);
+//        textArea.setRows(10);
+        textArea.setText(message);
         Border border = new LineBorder(Color.CYAN, 3);
         textArea.setBorder(border);
+        panel.add(textArea, c);
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        panel.add(scrollPane, c);
+
+
+
+
 
 
 //        Устанавливаю textField для ввода информации. Потенциально ненужная штука
@@ -107,6 +121,7 @@ public class Game extends JFrame {
         c.gridx++;
         c.gridy = 0;
 
+        c.anchor = GridBagConstraints.CENTER;
 
 //         Добавляю нередактируемые текстовые поля, которые являются счетчиками плюс их названия
         panel.add(new JLabel("Негативная карма : "), c);
@@ -126,19 +141,21 @@ public class Game extends JFrame {
         karmaField.setBackground(Color.green);
         karmaField.setEditable(false);
         karmaField.setBorder(new LineBorder(Color.black, 1));
+        karmaField.setText(String.valueOf(karma));
 
         c.gridy++;
         panel.add(spalilsyaField, c);
         spalilsyaField.setEditable(false);
         spalilsyaField.setBackground(Color.green);
         spalilsyaField.setBorder(new LineBorder(Color.black, 1));
+        spalilsyaField.setText(String.valueOf(shtraf));
 
         c.gridy++;
         panel.add(proektField, c);
         proektField.setBackground(Color.green);
         proektField.setEditable(false);
         proektField.setBorder(new LineBorder(Color.black, 1));
-
+        proektField.setText(String.valueOf(proekt));
 
 //        Устанавливаем изображение
 
