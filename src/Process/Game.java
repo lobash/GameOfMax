@@ -16,6 +16,7 @@ public class Game extends JFrame {
     public static int shtraf;
 
     public static String message = "Hello guy! This is я не знаю английского крч. Для того, что бы начать игру, нажми 'Start Game'";
+    public static String resultat;
 
 
 
@@ -169,7 +170,16 @@ public class Game extends JFrame {
         image.setIcon(new ImageIcon(getClass().getResource("/Image/kot_pilot.jpg")));
         panel.add(image, c);
 
+
+        button.addActionListener(e -> {
+            message = "охтыжёпт";
+            textArea.setText(message);
+            step++;
+        });
+
     }
+
+
 
 //      привязываем слушателя к первой кнопке
 
