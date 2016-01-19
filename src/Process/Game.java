@@ -6,24 +6,13 @@ import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 
-public class Game extends JFrame {
-
-    //Счетчики
-    public static int karma;
-    public static int day;
-    public static int proekt;
-    public static int step;
-    public static int shtraf;
-
-    public static String message = "Hello guy! This is я не знаю английского крч. Для того, что бы начать игру, нажми 'Start Game'";
-    public static String resultat;
+public class Game extends Spisok {
 
 
-
-    // создаю элементы фрейма
+    // Добавляю элементы фрейма, настроиваю
 
     public Game() {
-        super("Max-Javax");
+        super("name");
         createView();
         this.setSize(900, 400);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,15 +27,11 @@ public class Game extends JFrame {
 
 //      Создание GridBagLayout
 
-        JPanel panelMain = new JPanel();
         getContentPane().add(panelMain);
-
-        JPanel panel = new JPanel(new GridBagLayout());
 
         panelMain.add(panel);
         panelMain.setBackground(Color.darkGray);
 
-        GridBagConstraints c = new GridBagConstraints();
 
 //        Устанавливаем основное текстовое поле
         c.gridy = 0;
@@ -63,16 +48,14 @@ public class Game extends JFrame {
         c.ipadx = 120;
         c.ipady = 100;
 
-        JTextArea textArea = new JTextArea("asd");
+
         panel.add(textArea, c);
 
-//      Вешаем скролл на текст арею
+//      Настраиваю текстАрею
 
         textArea.setWrapStyleWord(true);
         textArea.setLineWrap(true);
         textArea.setEditable(true);
-//        textArea.setColumns(10);
-//        textArea.setRows(10);
         textArea.setText(message);
         Border border = new LineBorder(Color.CYAN, 3);
         textArea.setBorder(border);
@@ -82,10 +65,6 @@ public class Game extends JFrame {
 
 
 
-
-
-
-//        Устанавливаю textField для ввода информации. Потенциально ненужная штука
         c.ipadx = 5;
         c.ipady = 5;
 
@@ -95,22 +74,14 @@ public class Game extends JFrame {
         c.gridy = 5;
 
         c.insets = new Insets(150, 0, 0, 50);
-        JTextField input = new JTextField(1);
-        panel.add(input, c);
 
 
 //        Добавляю кнопки
         c.insets = new Insets(0, 0, 0, 0);
-
         c.gridy += 2;
-
-        JButton button = new JButton("1");
-        JButton button2 = new JButton("2");
-        JButton button3 = new JButton("3");
 
         button.setText("Start Game!");
         panel.add(button, c);
-
         c.gridx++;
 
         panel.add(button2, c);
@@ -134,9 +105,6 @@ public class Game extends JFrame {
         c.gridy = 0;
         c.gridx = 4;
 
-        JTextField karmaField = new JTextField(3);
-        JTextField spalilsyaField = new JTextField(3);
-        JTextField proektField = new JTextField(3);
 
         panel.add(karmaField, c);
         karmaField.setBackground(Color.green);
@@ -162,23 +130,25 @@ public class Game extends JFrame {
 
         c.gridx = 3;
         c.gridy = 4;
-
         c.gridwidth = 3;
         c.gridheight = 3;
 
-        JLabel image = new JLabel();
         image.setIcon(new ImageIcon(getClass().getResource("/Image/kot_pilot.jpg")));
         panel.add(image, c);
 
+//        button.addActionListener(e -> {
+//            message = "охтыжёпт";
+//            textArea.setText(message);
+//            step++;
+//        });
 
-        button.addActionListener(e -> {
-            message = "охтыжёпт";
-            textArea.setText(message);
-            step++;
-        });
 
     }
 
+    public static void main(String[] args) {
+        Game app = new Game();
+        app.setVisible(true);
+    }
 
 
 //      привязываем слушателя к первой кнопке
@@ -229,12 +199,6 @@ public class Game extends JFrame {
 //
 //        });
 //    }
-
-
-    public static void main(String[] args) {
-        Game app = new Game();
-        app.setVisible(true);
-    }
 
 
 }
