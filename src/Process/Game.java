@@ -12,7 +12,7 @@ public class Game extends Spisok {
     // Добавляю элементы фрейма, настроиваю
 
     public Game() {
-        super("name");
+
         createView();
         this.setSize(900, 400);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
