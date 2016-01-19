@@ -1,7 +1,7 @@
 package Process;
 
 
-public class Count extends Game {
+public class Count extends Listener {
 
     // условие для нового дня
     protected int newDay() {
@@ -27,10 +27,26 @@ public class Count extends Game {
         }
     }
 
-    protected int overShtraf(){
-//        if (shtraf >= 5){
-
+    protected String overShtraf() {
+        if (shtraf >= 5) {
+            resultat = "Начальник пронюхал твои делишки, и выгнал тебя. Game Over";
         }
+        return resultat;
     }
 
+    protected String overKarma(){
+        if(karma >= 5){
+            resultat = "Вы почувствовали знак свыше, что необходимо сходить покурить, даже если Вы не курите. /n" +
+                    "Стрельнув сигарету, отходите, и в Вас прилетает метиорит в форме макарон. Game Over";
+        }
+        return resultat;
+    }
+    public static void main(String[] args) {
+        Game app = new Game();
+        app.setVisible(true);
+        Listener li = new Listener();
+        li.setVisible(true);
+    }
 }
+
+

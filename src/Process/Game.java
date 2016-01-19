@@ -12,7 +12,6 @@ public class Game extends Spisok {
     // Добавляю элементы фрейма, настроиваю
 
     public Game() {
-
         createView();
         this.setSize(900, 400);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -145,10 +144,11 @@ public class Game extends Spisok {
 
     }
 
-    public static void main(String[] args) {
-        Game app = new Game();
-        app.setVisible(true);
-    }
+//    public static void main(String[] args) {
+//        Game app = new Game();
+//        app.setVisible(true);
+//
+//    }
 
 
 //      привязываем слушателя к первой кнопке
