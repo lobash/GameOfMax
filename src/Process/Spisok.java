@@ -3,6 +3,7 @@ package Process;
 
 import javax.swing.*;
 import java.awt.*;
+import java.math.*;
 
 public class Spisok extends JFrame {
 
@@ -12,6 +13,8 @@ public class Spisok extends JFrame {
     public static int proekt;
     public static int step;
     public static int shtraf;
+
+
 
     // Вывод текста на экран
     public static String message;
@@ -24,9 +27,11 @@ public class Spisok extends JFrame {
 
     JTextArea textArea = new JTextArea();
 
-    JButton button = new JButton("1");
-    JButton button2 = new JButton("2");
-    JButton button3 = new JButton("3");
+     JButton button = new JButton();
+    final JButton button2 = new JButton();
+    final JButton button3 = new JButton();
+    final JButton button4 = new JButton();
+    final JButton button5 = new JButton();
 
     JTextField karmaField = new JTextField(3);
     JTextField spalilsyaField = new JTextField(3);

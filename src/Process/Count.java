@@ -42,8 +42,8 @@ public class Count extends Listener {
         return resultat;
     }
     public static void main(String[] args) {
-        Game app = new Game();
-        app.setVisible(true);
+//        Game app = new Game();
+//        app.setVisible(true);
         Listener li = new Listener();
         li.setVisible(true);
     }

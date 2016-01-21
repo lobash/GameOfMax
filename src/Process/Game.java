@@ -15,7 +15,7 @@ public class Game extends Spisok {
         createView();
         this.setSize(900, 400);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setResizable(false);
+        setResizable(true);
 
     }
 
@@ -30,7 +30,7 @@ public class Game extends Spisok {
 
         panelMain.add(panel);
         panelMain.setBackground(Color.darkGray);
-
+        panel.setSize(900,400);
 
 //        Устанавливаем основное текстовое поле
         c.gridy = 0;
@@ -42,10 +42,10 @@ public class Game extends Spisok {
         c.weighty = 1.0;
 
         c.gridwidth = 3;
-        c.gridheight = 4;
+        c.gridheight = 6;
 
-        c.ipadx = 120;
-        c.ipady = 100;
+        c.ipadx = 20;
+        c.ipady = 10;
 
 
         panel.add(textArea, c);
@@ -64,8 +64,8 @@ public class Game extends Spisok {
 
 
 
-        c.ipadx = 5;
-        c.ipady = 5;
+//        c.ipadx = 5;
+//        c.ipady = 5;
 
         c.gridwidth = 1;
         c.gridheight = 1;
@@ -81,15 +81,23 @@ public class Game extends Spisok {
 
         button.setText("Start Game!");
         panel.add(button, c);
+
+
+        button5.setVisible(false);
+        panel.add(button5, c)
+        ;
         c.gridx++;
 
         panel.add(button2, c);
-        button2.setEnabled(false);
+        button2.setVisible(false);
         c.gridx++;
 
         panel.add(button3, c);
-        button3.setEnabled(false);
+        button3.setVisible(false);
         c.gridx++;
+
+        panel.add(button4, c);
+        button4.setVisible(false);
         c.gridy = 0;
 
         c.anchor = GridBagConstraints.CENTER;
