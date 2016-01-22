@@ -68,7 +68,29 @@ public class Listener extends Game {
 
 //        Слушатель кнопки 3
         button3.addActionListener(e -> {
+            if (procent <= Math.random() * 10) {
+                textArea.setText(popitkaPlagiat + "\n Ещё и начальник заметил, отругал. " +
+                        "\n Теперь он стал ещё больше чесаться в твою сторону");
+                step += 1;
+                shtraf += 1;
+                procent += 2;
+                karma += 1;
+                spalilsyaField.setText(String.valueOf(shtraf));
+                karmaField.setText(String.valueOf(karma));
+            } else {
+                textArea.setText(popitkaPlagiat + "\n Но тем не менее свой кусок кода Вы урвали");
+                step += 1;
+                proekt += Math.abs(Math.random() * 15);
+                proektField.setText(String.valueOf(proekt));
+            }
+        });
 
+//        слушатель на 4 кнопку
+        button4.addActionListener(e -> {
+            textArea.setText("Вы решили что надо снять с себя негатив, и молча произнесли пастафарианскую мольбу. " +
+                    "\n Сразу полегчало");
+            karma = 0;
+            karmaField.setText(String.valueOf(karma));
         });
     }
 

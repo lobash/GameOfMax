@@ -21,6 +21,9 @@ public class Spisok extends JFrame {
     public static String message;
     public static String resultat;
     final static String popitkaPhp = "Вы попытались тайком хоть что-то сделать в Вашем подпольном проекте ";
+    final static String popitkaPlagiat = "'Ну и зачем тебе это?' - спросили вы себя. \n" +
+            "'Ты ведь обещал всё писать сам!' - и стало совестно очень.";
+
 
     //  Элементы фрейма
     JPanel panelMain = new JPanel();
