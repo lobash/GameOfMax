@@ -6,31 +6,25 @@ import java.math.*;
 
 public class Listener extends Game {
 
-// Включаем слушатели, реализация основного игрового процесса.
+    // Включаем слушатели, реализация основного игрового процесса.
 //    разрабатывается.
     public Listener() {
-        ;
-        button.addActionListener(e -> {
-            remove(button);
 
+
+        //слушатель старт гейма
+
+        button.addActionListener(e -> {
+            button.setVisible(false);
+            remove(button);
+            repaint();
             textArea.setText("Вступительный текст!");
 
             button5.setVisible(true);
-            button5.setText("пятая кнопка");
+            button5.setText("Work on PHP");
 
             button2.setVisible(true);
-            button2.setText("Work in PHP");
+            button2.setText("Work on Java");
             button2.addActionListener(e1 -> {
-                 double randInt = Math.random()*10;
-                if( randInt <= 4.0){
-                    textArea.setText("ух как весело писать на пыхе!");
-                    System.out.println(randInt);
-                }else{
-                    textArea.setText("Невесело:(");
-                }
-//                karma +=1;
-//                karmaField.setText(String.valueOf(karma));
-//                System.out.println(karma);
             });
 
             button3.setVisible(true);
@@ -39,13 +33,44 @@ public class Listener extends Game {
             button4.setVisible(true);
             button4.setText("Мольба макаронному богу");
 
+        });
 
 
-        button.addActionListener(e2 -> {
-            textArea.setText("asd");
+        //слушатель кнопки 1
+        button5.addActionListener(e1 -> {
+            textArea.setText("Начальник видит, что Вы ответственно выполняете свои обязанности. " +
+                    "Его бдительность уменьшена ");
+            step += 1;
+            procent -= 10.0;
+            System.out.print(procent + " ");
+            System.out.print(step + " ");
         });
+
+//  слушатель кнопки 2
+        button2.addActionListener(e2 -> {
+            if (procent <= Math.random() * 10) {
+                textArea.setText(popitkaPhp +
+                        "\n и к счастью, начальник не увидел этого. Так держать!");
+                step += 1;
+                proekt += Math.random() * 10;
+                proektField.setText(String.valueOf(proekt));
+//                System.out.println("step = " + step);
+//                System.out.println("proekt = " + proekt);
+            } else {
+                textArea.setText(popitkaPhp + "\n но начальник увидел это. Он явно недоволен.");
+                step += 1;
+                shtraf += 1;
+                spalilsyaField.setText(String.valueOf(shtraf));
+//                System.out.print(procent + " ");
+//                System.out.print(step + " ");
+            }
         });
-        }
+
+//        Слушатель кнопки 3
+        button3.addActionListener(e -> {
+
+        });
+    }
 
 
 }

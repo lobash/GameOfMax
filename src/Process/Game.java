@@ -79,13 +79,15 @@ public class Game extends Spisok {
         c.insets = new Insets(0, 0, 0, 0);
         c.gridy += 2;
 
-        button.setText("Start Game!");
+        button5.setVisible(false);
+        panel.add(button5, c);
+
+        button.setText("Start New Game!");
         panel.add(button, c);
 
 
-        button5.setVisible(false);
-        panel.add(button5, c)
-        ;
+
+
         c.gridx++;
 
         panel.add(button2, c);

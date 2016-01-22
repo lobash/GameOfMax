@@ -13,12 +13,14 @@ public class Spisok extends JFrame {
     public static int proekt;
     public static int step;
     public static int shtraf;
+    public static double procent = 4.0;
 
 
 
     // Вывод текста на экран
     public static String message;
     public static String resultat;
+    final static String popitkaPhp = "Вы попытались тайком хоть что-то сделать в Вашем подпольном проекте ";
 
     //  Элементы фрейма
     JPanel panelMain = new JPanel();
