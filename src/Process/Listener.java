@@ -1,12 +1,13 @@
 package Process;
 
 
+import javax.swing.*;
+
 public class Listener extends Game {
 
     // Включаем слушатели, реализация основного игрового процесса.
-//    разрабатывается.
-    public Listener() {
 
+    public Listener() {
 
         //слушатель старт гейма button
 
@@ -14,49 +15,44 @@ public class Listener extends Game {
             button.setVisible(false);
             remove(button);
             repaint();
-            textArea.setText("Вы - программист,работающий на PHP. " +
-                    "Однако, Вы не отчаиваетесь, и желаете изучать Java, но Ваше начальство разумеется против. " +
-                    "Итак, Ваша основная цель - привести проект к 100% готовности." +
-                    "Вперед!!!");
+            textArea.setText(
+                    "Кстати, у Вас на всё провсё 5 дней.\n" +
+                    "В день, Вы можете сделать 5 действий. \n" +
+                    "Каждый день вся лояльность начальника сбрасывается.\n" +
+                    "Ну, а теперь точно начнем!!!");
             stockElement();
+            editColor();
 
+//      Добавляем кнопки и обзываем их
 
-//      Добавляем кнопку button5 для php
-            button5.setVisible(true);
-            button5.setText("Work on PHP");
-//      Добавляем кнопку button2 для Java
+            button1.setVisible(true);
+            button1.setText("Work on PHP");
 
             button2.setVisible(true);
-            button2.setText("Work on Java");
-
-            //      Добавляем кнопку button3 для плагиата
-
+            button2.setText("Work on Javа");
 
             button3.setVisible(true);
             button3.setText("Cтырить код из инета");
 
-            //      Добавляем кнопку button4 для мольбы
-
             button4.setVisible(true);
             button4.setText("Мольба макаронному богу");
-
         });
 
 
-        //слушатель кнопки b5 для php
-        button5.addActionListener(e1 -> {
+        //слушатель кнопки button1 для php
+
+        button1.addActionListener(e1 -> {
             textArea.setText("Начальник видит, что Вы ответственно выполняете свои обязанности. " +
                     "Его бдительность уменьшена ");
             step += 1;
             procent -= 1.0;
             newDay();
             totalGame();
-            System.out.println("step = "+step);
-            System.out.println("day = " + day);
-            System.out.println(" ");
+            editColor();
+            image.setIcon(new ImageIcon(getClass().getResource("/Image/php_kot.jpg")));
         });
 
-//  слушатель кнопки b2 для Java
+//  слушатель кнопки button2 для Java
         button2.addActionListener(e2 -> {
             if (procent <= Math.random() * 10) {
                 textArea.setText(popitkaJava +
@@ -64,24 +60,23 @@ public class Listener extends Game {
                 step += 1;
                 proekt += Math.random() * 10;
                 proektField.setText(String.valueOf(proekt));
+                image.setIcon(new ImageIcon(getClass().getResource("/Image/up.jpg")));
 
             } else {
                 textArea.setText(popitkaJava + "\n но начальник увидел это. Он явно недоволен.");
                 step += 1;
                 shtraf += 1;
-                spalilsyaField.setText(String.valueOf(shtraf));
+                shtrafField.setText(String.valueOf(shtraf));
+                image.setIcon(new ImageIcon(getClass().getResource("/Image/palevo.jpg")));
             }
 
-//            счетчики
             newDay();
             shtrafGameOver();
             totalGame();
-            System.out.println("step = "+ step);
-            System.out.println("day = " + day);
-            System.out.println(" ");
+            editColor();
         });
 
-//        Слушатель кнопки b3 для плагиата
+//        Слушатель кнопки button3 для плагиата
         button3.addActionListener(e -> {
             if (procent <= Math.random() * 10) {
                 textArea.setText(popitkaPlagiat + "\n Ещё и начальник заметил, отругал. " +
@@ -90,7 +85,7 @@ public class Listener extends Game {
                 shtraf += 1;
                 procent += 2;
                 karma += 1;
-                spalilsyaField.setText(String.valueOf(shtraf));
+                shtrafField.setText(String.valueOf(shtraf));
                 karmaField.setText(String.valueOf(karma));
             } else {
                 textArea.setText(popitkaPlagiat + "\n Но тем не менее свой кусок кода Вы урвали");
@@ -99,16 +94,15 @@ public class Listener extends Game {
                 proektField.setText(String.valueOf(proekt));
             }
 
+            image.setIcon(new ImageIcon(getClass().getResource("/Image/stid.jpg")));
             newDay();
             totalGame();
             shtrafGameOver();
             karmaGameOver();
-            System.out.println("step = "+step);
-            System.out.println("day = " + day);
-            System.out.println(" ");
+            editColor();
         });
 
-//        слушатель на b4 кнопку для мольбы
+//        слушатель на button4 кнопку для мольбы
 
         button4.addActionListener(e -> {
             textArea.setText("Вы решили, что надо снять с себя негатив, и молча произнесли пастафарианскую мольбу. " +
@@ -116,13 +110,10 @@ public class Listener extends Game {
             karma = 0;
             step += 1;
             karmaField.setText(String.valueOf(karma));
+            image.setIcon(new ImageIcon(getClass().getResource("/Image/molilsa.jpg")));
 
             newDay();
             totalGame();
-
-            System.out.println("step = "+step);
-            System.out.println("day = " + day);
-            System.out.println(" ");
         });
 
     }
@@ -131,7 +122,6 @@ public class Listener extends Game {
 
         Listener li = new Listener();
         li.setVisible(true);
-
 
     }
 }

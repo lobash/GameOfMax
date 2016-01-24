@@ -1,6 +1,5 @@
 package Process;
 
-
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
@@ -13,10 +12,9 @@ public class Game extends Spisok {
 
     public Game() {
         createView();
-        this.setSize(900, 400);
+        this.setSize(1000, 450);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setResizable(true);
-
+        setResizable(false);
     }
 
 
@@ -30,7 +28,7 @@ public class Game extends Spisok {
 
         panelMain.add(panel);
         panelMain.setBackground(Color.darkGray);
-        panel.setSize(900,400);
+        panel.setSize(900, 400);
 
 //        Устанавливаем основное текстовое поле
         c.gridy = 0;
@@ -47,47 +45,37 @@ public class Game extends Spisok {
         c.ipadx = 20;
         c.ipady = 10;
 
-
         panel.add(textArea, c);
 
 //      Настраиваю текстАрею
 
         textArea.setWrapStyleWord(true);
         textArea.setLineWrap(true);
-        textArea.setEditable(true);
-        textArea.setText(message);
+        textArea.setEditable(false);
+        textArea.setText("Вы - программист,работающий на PHP. " +
+                "Однако, Вы не отчаиваетесь, и желаете изучать Java, но Ваше начальство разумеется против. " +
+                "Итак, Ваша основная цель - привести проект к 100% готовности." +
+                "Вперед!!!");
         Border border = new LineBorder(Color.CYAN, 3);
         textArea.setBorder(border);
         panel.add(textArea, c);
         JScrollPane scrollPane = new JScrollPane(textArea);
         panel.add(scrollPane, c);
 
-
-
-//        c.ipadx = 5;
-//        c.ipady = 5;
-
         c.gridwidth = 1;
         c.gridheight = 1;
-
         c.gridy = 5;
-
         c.insets = new Insets(150, 0, 0, 50);
 
 
 //        Добавляю кнопки
         c.insets = new Insets(0, 0, 0, 0);
+
         c.gridy += 2;
-
-        button5.setVisible(false);
-        panel.add(button5, c);
-
+        button1.setVisible(false);
+        panel.add(button1, c);
         button.setText("Start New Game!");
         panel.add(button, c);
-
-
-
-
         c.gridx++;
 
         panel.add(button2, c);
@@ -105,6 +93,7 @@ public class Game extends Spisok {
         c.anchor = GridBagConstraints.CENTER;
 
 //         Добавляю нередактируемые текстовые поля, которые являются счетчиками плюс их названия
+
         panel.add(new JLabel("Негативная карма : "), c);
         c.gridy++;
         panel.add(new JLabel("Спалился раз : "), c);
@@ -114,7 +103,6 @@ public class Game extends Spisok {
         c.gridy = 0;
         c.gridx = 4;
 
-
         panel.add(karmaField, c);
         karmaField.setBackground(Color.green);
         karmaField.setEditable(false);
@@ -122,11 +110,11 @@ public class Game extends Spisok {
         karmaField.setText(String.valueOf(karma));
 
         c.gridy++;
-        panel.add(spalilsyaField, c);
-        spalilsyaField.setEditable(false);
-        spalilsyaField.setBackground(Color.green);
-        spalilsyaField.setBorder(new LineBorder(Color.black, 1));
-        spalilsyaField.setText(String.valueOf(shtraf));
+        panel.add(shtrafField, c);
+        shtrafField.setEditable(false);
+        shtrafField.setBackground(Color.green);
+        shtrafField.setBorder(new LineBorder(Color.black, 1));
+        shtrafField.setText(String.valueOf(shtraf));
 
         c.gridy++;
         panel.add(proektField, c);
@@ -145,71 +133,6 @@ public class Game extends Spisok {
         image.setIcon(new ImageIcon(getClass().getResource("/Image/kot_pilot.jpg")));
         panel.add(image, c);
 
-//        button.addActionListener(e -> {
-//            message = "охтыжёпт";
-//            textArea.setText(message);
-//            step++;
-//        });
-
-
     }
-
-//    public static void main(String[] args) {
-//        Game app = new Game();
-//        app.setVisible(true);
-//
-//    }
-
-
-//      привязываем слушателя к первой кнопке
-
-//        button.addActionListener(e -> {
-//            message = "Здравствуйте! \n" + "Прежде чем начать эту умопомрачительную игру, просьба ответить на небольшой вопрос.";
-//            message += "На чем вы пишете? (ввести число) "
-//                    + "\n A. Java"
-//                    + "\n B. PHP ;"
-//                    + "\n C. тетрадь (любое другое)";
-//
-////          обрабатываем ответ, выводим следующую кнопку
-//
-//            answer = input.getText();
-//            textArea.setText(message);
-//            System.out.println(answer);
-//            remove(button);
-//            add(button2);
-//            add(input);
-//            repaint();
-//        });
-//
-//    /* у второго слушателя включаем сверку на ответ, обрабатываем,
-//       и пляшем к третей кнопке или гамовер с ресетом. */
-//
-//        button2.addActionListener(e -> {
-//            answer = input.getText();
-//            System.out.println(answer); //проверка введенного значения
-//
-//
-//            if (answer.equals("A")) {
-//                message = "Вот и наш ГГ Максим хотел писать на Java, \n однако работа заставляла писать его на PHP. Давайте вместе поможем Максу написать проект на Java? Тогда вперед!";
-//                textArea.setText(message);
-//                add(button3);
-//                remove(button2);
-//                answer="";
-//
-//            } else {
-//                message = "GAME OVER(без обоснований222)";
-//                textArea.setText(message);
-////                container.add(button);
-////                container.remove(button2);
-//            }
-//
-//        });
-//
-//        button3.addActionListener(e -> {
-//
-//        });
-//    }
-
-
 }
 
